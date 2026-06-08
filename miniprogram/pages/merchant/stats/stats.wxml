@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-value">{{stats.totalOrders || 0}}</text>
+      <text class="stat-label">总订单数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value" style="color:var(--color-primary)">¥{{stats.totalAmount || 0}}</text>
+      <text class="stat-label">总销售额</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{stats.totalGoods || 0}}</text>
+      <text class="stat-label">商品总数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{stats.totalSales || 0}}</text>
+      <text class="stat-label">总销量</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">最近订单</text>
+    <view class="order-item" wx:for="{{recentOrders}}" wx:key="*this">
+      <text class="order-no">{{item.orderNo || item._id}}</text>
+      <text class="order-amount">¥{{item.totalAmount}}</text>
+      <text class="order-status {{item.status}}">{{statusMap[item.status]}}</text>
+    </view>
+    <empty-state wx:if="{{recentOrders.length === 0}}" icon="📊" title="暂无数据" />
+  </view>
+
+  <view class="bottom-nav">
+    <view class="nav-item" bindtap="goGoodsList"><text>📦</text><text>商品</text></view>
+    <view class="nav-item" bindtap="goOrders"><text>📋</text><text>订单</text></view>
+    <view class="nav-item active"><text>📊</text><text>统计</text></view>
+  </view>
+</view>

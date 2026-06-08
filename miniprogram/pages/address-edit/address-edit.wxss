@@ -1,0 +1,54 @@
+.page {
+  padding: var(--spacing-base);
+}
+
+.form {
+  background: #fff;
+  border-radius: var(--radius-base);
+  padding: var(--spacing-base);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-base) 0;
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  width: 160rpx;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  text-align: right;
+}
+
+.input.placeholder {
+  color: var(--color-text-light);
+}
+
+.switch-item {
+  justify-content: space-between;
+}
+
+.btn-wrap {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.btn-wrap .btn-primary,
+.btn-wrap .btn-secondary {
+  width: 100%;
+}

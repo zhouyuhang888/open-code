@@ -1,0 +1,35 @@
+.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.loading-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.loading-dot {
+  width: 12rpx;
+  height: 12rpx;
+  background: var(--color-primary);
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+@keyframes bounce {
+  from { opacity: 0.3; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+.loading-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.no-more {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}

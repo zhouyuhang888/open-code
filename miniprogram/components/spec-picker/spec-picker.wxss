@@ -1,0 +1,30 @@
+.spec-group {
+  margin-bottom: var(--spacing-base);
+}
+
+.spec-label {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.spec-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.spec-option {
+  padding: 12rpx 24rpx;
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.spec-option.active {
+  border-color: var(--color-primary);
+  background: rgba(91,140,42,0.08);
+  color: var(--color-primary);
+}

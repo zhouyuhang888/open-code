@@ -1,0 +1,24 @@
+.price-display {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.symbol {
+  font-size: 22rpx;
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.price {
+  font-size: var(--font-size-xl);
+  color: var(--color-danger);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.origin-price {
+  font-size: 22rpx;
+  color: var(--color-text-light);
+  text-decoration: line-through;
+  margin-left: var(--spacing-xs);
+}

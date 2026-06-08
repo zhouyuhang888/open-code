@@ -1,0 +1,80 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+.address-list {
+  padding: var(--spacing-base);
+}
+
+.address-card {
+  background: #fff;
+  border-radius: var(--radius-base);
+  padding: var(--spacing-base);
+  margin-bottom: var(--spacing-base);
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.06);
+}
+
+.address-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+.name-phone {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.phone {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.default-tag {
+  font-size: 20rpx;
+  color: var(--color-primary);
+  background: rgba(91,140,42,0.1);
+  padding: 2rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.edit-btn, .delete-btn {
+  font-size: var(--font-size-sm);
+}
+
+.edit-btn { color: var(--color-primary); }
+.delete-btn { color: var(--color-danger); }
+
+.address-detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.add-btn-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-base);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--color-bg);
+}
+
+.add-btn-wrap .btn-primary {
+  width: 100%;
+}

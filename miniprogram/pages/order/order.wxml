@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="address-section card" bindtap="chooseAddress">
+    <view wx:if="{{address}}" class="address-info">
+      <view class="address-top">
+        <text class="address-name">{{address.name}}</text>
+        <text class="address-phone">{{address.phone}}</text>
+      </view>
+      <text class="address-detail">{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</text>
+    </view>
+    <view wx:else class="address-empty">
+      <text>请选择收货地址</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <view class="order-items card">
+    <view class="order-item" wx:for="{{orderItems}}" wx:key="goodsId">
+      <image class="item-img" src="{{item.image || 'https://via.placeholder.com/160'}}" mode="aspectFill" />
+      <view class="item-info">
+        <text class="item-name ellipsis-2">{{item.name}}</text>
+        <text class="item-spec">{{item.spec}}</text>
+        <view class="item-bottom">
+          <price-display price="{{item.price}}" />
+          <text class="item-qty">× {{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="summary card">
+    <view class="summary-row">
+      <text>商品小计</text>
+      <price-display price="{{totalAmount}}" />
+    </view>
+    <view class="summary-row">
+      <text>运费</text>
+      <text wx:if="{{freight === 0}}" class="free">免运费</text>
+      <price-display wx:else price="{{freight}}" />
+    </view>
+    <view class="summary-row">
+      <text>备注</text>
+      <input class="remark-input" placeholder="选填，给商家的备注" bindinput="onRemarkInput" />
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="total-section">
+      <text class="total-text">实付：</text>
+      <price-display price="{{totalAmount + freight}}" />
+    </view>
+    <button class="btn-primary submit-btn" bindtap="submitOrder">提交订单</button>
+  </view>
+</view>

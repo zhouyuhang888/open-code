@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/goods/goods",
+    "pages/cart/cart",
+    "pages/order/order",
+    "pages/order-list/order-list",
+    "pages/order-detail/order-detail",
+    "pages/address/address",
+    "pages/address-edit/address-edit",
+    "pages/user/user",
+    "pages/search/search",
+    "pages/merchant/login/login",
+    "pages/merchant/goods-list/goods-list",
+    "pages/merchant/goods-edit/goods-edit",
+    "pages/merchant/orders/orders",
+    "pages/merchant/stats/stats"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "农家有机土特产",
+    "navigationBarBackgroundColor": "#f8f9f0",
+    "backgroundColor": "#f8f9f0"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#5B8C2A",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/tab-category.png",
+        "selectedIconPath": "images/tab-category-active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tab-cart.png",
+        "selectedIconPath": "images/tab-cart-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/tab-user.png",
+        "selectedIconPath": "images/tab-user-active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "goods-card": "/components/goods-card/goods-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "load-more": "/components/load-more/load-more",
+    "price-display": "/components/price-display/price-display",
+    "spec-picker": "/components/spec-picker/spec-picker"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

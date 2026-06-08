@@ -1,0 +1,98 @@
+.page {
+  padding: var(--spacing-base);
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  color: #fff;
+  margin-bottom: var(--spacing-base);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255,255,255,0.4);
+  margin-right: var(--spacing-base);
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.nickname {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.welcome {
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+  margin-top: 4rpx;
+  display: block;
+}
+
+.arrow {
+  font-size: var(--font-size-xl);
+  color: rgba(255,255,255,0.6);
+}
+
+.order-stats {
+  display: flex;
+  padding: var(--spacing-base) 0;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.stat-num {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text);
+  display: block;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: var(--color-text-light);
+  margin-top: 4rpx;
+  display: block;
+}
+
+.menu-list {
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-base);
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: var(--spacing-base);
+}
+
+.menu-label {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.menu-item .arrow {
+  color: var(--color-text-light);
+}

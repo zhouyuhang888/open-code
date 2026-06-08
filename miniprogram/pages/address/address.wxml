@@ -1,0 +1,24 @@
+<view class="page">
+  <empty-state wx:if="{{addressList.length === 0}}" icon="📍" title="暂无收货地址" desc="添加收货地址方便下单" btnText="添加地址" bindtap="addAddress" />
+
+  <view class="address-list" wx:else>
+    <view class="address-card" wx:for="{{addressList}}" wx:key="*this" data-item="{{item}}" bindtap="selectAddress">
+      <view class="address-top">
+        <view class="name-phone">
+          <text class="name">{{item.name}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <view class="actions">
+          <text class="edit-btn" bindtap="editAddress" data-id="{{item._id}}">编辑</text>
+          <text class="delete-btn" bindtap="deleteAddress" data-id="{{item._id}}">删除</text>
+        </view>
+      </view>
+      <text class="address-detail">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+    </view>
+  </view>
+
+  <view class="add-btn-wrap">
+    <button class="btn-primary" bindtap="addAddress">+ 新增收货地址</button>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="search-bar" bindtap="goSearch">
+    <text class="search-icon">🔍</text>
+    <text class="search-text">搜索有机土特产...</text>
+  </view>
+
+  <view class="content">
+    <scroll-view class="left-menu" scroll-y="{{true}}" enhanced>
+      <view class="menu-item {{index === activeIndex ? 'active' : ''}}" wx:for="{{categories}}" wx:key="*this" data-index="{{index}}" bindtap="switchCategory">
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <scroll-view class="right-content" scroll-y="{{true}}" enhanced>
+      <view class="banner-wrap" wx:if="{{currentCategory.banner}}">
+        <image class="cate-banner" src="{{currentCategory.banner}}" mode="aspectFill" />
+      </view>
+
+      <view class="sub-title">{{currentCategory.name || '全部分类'}}</view>
+
+      <view class="goods-grid">
+        <view class="goods-item" wx:for="{{goodsList}}" wx:key="*this" data-id="{{item._id}}" bindtap="goGoodsDetail">
+          <image class="goods-img" src="{{item.images && item.images[0]}}" mode="aspectFill" />
+          <text class="goods-name ellipsis-2">{{item.name}}</text>
+          <price-display price="{{item.price}}" />
+        </view>
+      </view>
+
+      <load-more loading="{{loading}}" hasMore="{{hasMore}}" />
+    </scroll-view>
+  </view>
+</view>

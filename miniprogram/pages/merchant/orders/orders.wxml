@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="tabs">
+    <view class="tab {{tabClass0}}" bindtap="switchTab" data-tab="all">全部</view>
+    <view class="tab {{tabClass1}}" bindtap="switchTab" data-tab="pending_ship">待发货</view>
+    <view class="tab {{tabClass2}}" bindtap="switchTab" data-tab="shipped">已发货</view>
+    <view class="tab {{tabClass3}}" bindtap="switchTab" data-tab="completed">已完成</view>
+  </view>
+
+  <empty-state wx:if="{{empty}}" icon="nopic" title="暂无订单" desc="等待买家下单" />
+
+  <view class="order-list" wx:else>
+    <view class="order-card" wx:for="{{orderList}}" wx:key="*this">
+      <view class="order-header">
+        <text>订单号：{{item.orderNo}}</text>
+        <text class="order-status {{item.status}}">{{item.statusText}}</text>
+      </view>
+      <view class="order-goods" wx:for="{{item.goodsDisplay}}" wx:key="*this">
+        <image class="goods-img" src="{{item.giImage}}" mode="aspectFill" />
+        <view class="goods-info">
+          <text class="goods-name ellipsis">{{item.giName}}</text>
+          <text>{{item.giSpec}} x {{item.giQty}}</text>
+        </view>
+      </view>
+      <view class="order-address">
+        <text>收货人：{{item.addressName}} {{item.addressPhone}}</text>
+        <text>{{item.addressDetail}}</text>
+      </view>
+      <view class="order-footer">
+        <text>合计：¥{{item.totalAmount}}</text>
+        <view class="actions" wx:if="{{item.showShip}}">
+          <button class="action-btn primary" bindtap="showShipDialog" data-id="{{item.id}}">发货</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-nav">
+    <view class="nav-item" bindtap="goGoodsList"><text>box</text><text>商品</text></view>
+    <view class="nav-item active" bindtap="goOrders"><text>list</text><text>订单</text></view>
+    <view class="nav-item" bindtap="goStats"><text>chart</text><text>统计</text></view>
+  </view>
+</view>

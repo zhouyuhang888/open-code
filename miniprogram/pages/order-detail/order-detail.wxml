@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="status-bar card">
+    <text class="status-icon">{{statusIcon}}</text>
+    <view class="status-info">
+      <text class="status-text">{{statusText}}</text>
+      <text class="status-desc">{{statusDesc}}</text>
+    </view>
+  </view>
+
+  <view class="address-section card">
+    <view class="address-top">
+      <text class="address-name">{{order.address ? order.address.name : ''}}</text>
+      <text class="address-phone">{{order.address ? order.address.phone : ''}}</text>
+    </view>
+    <text class="address-detail">{{order.address ? order.address.province + order.address.city + order.address.district + order.address.detail : ''}}</text>
+  </view>
+
+  <view class="goods-section card">
+    <view class="goods-item" wx:for="{{order.items}}" wx:for-item="gi" wx:key="goodsId">
+      <image class="goods-img" src="{{gi.image || 'https://via.placeholder.com/140'}}" mode="aspectFill" />
+      <view class="goods-info">
+        <text class="goods-name ellipsis-2">{{gi.name}}</text>
+        <text class="goods-spec">{{gi.spec}}</text>
+        <view class="goods-bottom">
+          <text class="goods-price">¥{{gi.price}}</text>
+          <text class="goods-qty">× {{gi.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-section card">
+    <view class="info-row"><text>订单编号</text><text>{{order.orderNo || order._id}}</text></view>
+    <view class="info-row"><text>下单时间</text><text>{{order.createTime}}</text></view>
+    <view class="info-row" wx:if="{{order.payTime}}"><text>付款时间</text><text>{{order.payTime}}</text></view>
+    <view class="info-row" wx:if="{{order.shipTime}}"><text>发货时间</text><text>{{order.shipTime}}</text></view>
+    <view class="info-row" wx:if="{{order.logistics}}"><text>物流单号</text><text>{{order.logistics}}</text></view>
+    <view class="info-row"><text>备注</text><text>{{order.remark || '无'}}</text></view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="total-text">实付：<text class="total-price">¥{{order.totalAmount}}</text></view>
+    <view class="actions">
+      <button class="action-btn" wx:if="{{order.status === 'pending_payment'}}" bindtap="payOrder">去支付</button>
+      <button class="action-btn outline" wx:if="{{order.status === 'pending_payment'}}" bindtap="cancelOrder">取消订单</button>
+      <button class="action-btn" wx:if="{{order.status === 'shipped'}}" bindtap="confirmReceive">确认收货</button>
+      <button class="action-btn" wx:if="{{order.status === 'completed'}}" bindtap="goHome">再来一单</button>
+    </view>
+  </view>
+</view>

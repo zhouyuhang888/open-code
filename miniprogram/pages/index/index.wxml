@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="header">
+    <view class="search-bar" bindtap="goSearch">
+      <text class="search-icon">🔍</text>
+      <text class="search-text">搜索有机土特产...</text>
+    </view>
+  </view>
+
+  <swiper class="banner" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" circular="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#5B8C2A">
+    <swiper-item wx:for="{{banners}}" wx:key="index" bindtap="onBannerTap" data-item="{{item}}">
+      <image class="banner-img" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="category-nav">
+    <view class="nav-item" wx:for="{{categories}}" wx:key="id" data-id="{{item._id}}" bindtap="goCategory">
+      <image class="nav-icon" src="{{item.icon || 'https://via.placeholder.com/60'}}" mode="aspectFill" />
+      <text class="nav-text">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">推荐商品</text>
+      <text class="section-more" bindtap="goCategory">查看更多 ›</text>
+    </view>
+    <view class="goods-grid">
+      <view class="goods-item" wx:for="{{recommendGoods}}" wx:key="*this" data-id="{{item._id}}" bindtap="goGoodsDetail">
+        <image class="goods-img" src="{{item.images && item.images[0]}}" mode="aspectFill" />
+        <view class="goods-info">
+          <text class="goods-name ellipsis-2">{{item.name}}</text>
+          <view class="goods-tags">
+            <text class="tag" wx:if="{{item.isOrganic}}">有机</text>
+            <text class="tag" wx:if="{{item.isLocal}}">产地直发</text>
+          </view>
+          <view class="goods-bottom">
+            <price-display price="{{item.price}}" />
+            <text class="goods-sales">已售 {{item.sales || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <load-more loading="{{loading}}" hasMore="{{hasMore}}" />
+  </view>
+</view>

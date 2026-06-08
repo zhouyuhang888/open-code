@@ -1,0 +1,5 @@
+<view class="price-display">
+  <text class="symbol">¥</text>
+  <text class="price">{{displayPrice}}</text>
+  <text class="origin-price" wx:if="{{originPrice && originPrice > price}}">¥{{originPrice}}</text>
+</view>

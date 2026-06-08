@@ -1,0 +1,76 @@
+<view class="page">
+  <swiper class="goods-swiper" indicator-dots="{{true}}" autoplay="{{false}}" circular="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#5B8C2A">
+    <swiper-item wx:for="{{goods.images}}" wx:key="index">
+      <image class="swiper-img" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="goods-info card">
+    <price-display price="{{goods.price}}" originPrice="{{goods.originPrice}}" />
+    <text class="goods-name">{{goods.name}}</text>
+    <text class="goods-desc">{{goods.description}}</text>
+    <view class="goods-meta">
+      <text class="meta-item">已售 {{goods.sales || 0}}</text>
+      <text class="meta-item">库存 {{goods.stock || 0}}</text>
+      <text class="meta-item">产地 {{goods.origin || '未知'}}</text>
+    </view>
+  </view>
+
+  <view class="farmer-info card" wx:if="{{goods.farmer}}">
+    <text class="section-title">农户介绍</text>
+    <view class="farmer-content">
+      <image class="farmer-avatar" src="{{goods.farmer.avatar || 'https://via.placeholder.com/80'}}" mode="aspectFill" />
+      <view class="farmer-detail">
+        <text class="farmer-name">{{goods.farmer.name}}</text>
+        <text class="farmer-desc">{{goods.farmer.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail-section card">
+    <text class="section-title">商品详情</text>
+    <rich-text nodes="{{goods.detail || ''}}" />
+  </view>
+
+  <view class="spec-panel" wx:if="{{showSpecPanel}}">
+    <view class="mask" bindtap="toggleSpecPanel" />
+    <view class="panel-content">
+      <image class="panel-img" src="{{goods.images && goods.images[0]}}" mode="aspectFill" />
+      <price-display price="{{selectedPrice}}" />
+      <text class="panel-stock">库存 {{selectedStock}} 件</text>
+
+      <scroll-view scroll-y class="spec-scroll">
+        <view class="spec-group" wx:for="{{specList}}" wx:key="name">
+          <text class="spec-label">{{item.name}}</text>
+          <view class="spec-options">
+            <text class="spec-option {{opt.selected ? 'active' : ''}}" wx:for="{{item.options}}" wx:for-item="opt" wx:key="value" data-group="{{index}}" data-opt="{{opt}}" bindtap="selectSpec">{{opt.value}}</text>
+          </view>
+        </view>
+
+        <view class="quantity-section">
+          <text class="spec-label">数量</text>
+          <view class="quantity-control">
+            <text class="qty-btn" bindtap="decreaseQty">−</text>
+            <text class="qty-num">{{quantity}}</text>
+            <text class="qty-btn" bindtap="increaseQty">+</text>
+          </view>
+        </view>
+      </scroll-view>
+
+      <button class="btn-primary confirm-btn" bindtap="confirmAddToCart">确认</button>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="bar-item" bindtap="goCart">
+      <text class="bar-icon">🛒</text>
+      <text>购物车</text>
+    </view>
+    <view class="bar-item" bindtap="addFav">
+      <text class="bar-icon">{{isFav ? '❤️' : '🤍'}}</text>
+      <text>{{isFav ? '已收藏' : '收藏'}}</text>
+    </view>
+    <button class="btn-cart" bindtap="toggleSpecPanel">加入购物车</button>
+    <button class="btn-buy" bindtap="buyNow">立即购买</button>
+  </view>
+</view>

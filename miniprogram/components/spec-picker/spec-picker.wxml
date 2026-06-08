@@ -1,0 +1,8 @@
+<view class="spec-picker">
+  <view class="spec-group" wx:for="{{specList}}" wx:key="name">
+    <text class="spec-label">{{item.name}}</text>
+    <view class="spec-options">
+      <text class="spec-option {{opt.selected ? 'active' : ''}}" wx:for="{{item.options}}" wx:for-item="opt" wx:key="value" data-group="{{index}}" data-value="{{opt.value}}" bindtap="onSelect">{{opt.value}}</text>
+    </view>
+  </view>
+</view>

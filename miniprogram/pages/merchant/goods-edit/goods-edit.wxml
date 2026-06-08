@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="form">
+    <view class="form-item">
+      <text class="label">商品名称</text>
+      <input class="input" placeholder="请输入商品名称" value="{{form.name}}" bindinput="onInput" data-field="name" />
+    </view>
+    <view class="form-item">
+      <text class="label">商品描述</text>
+      <input class="input" placeholder="简短描述" value="{{form.description}}" bindinput="onInput" data-field="description" />
+    </view>
+    <view class="form-item">
+      <text class="label">分类</text>
+      <picker mode="selector" range="{{categories}}" range-key="name" bindchange="onCategoryChange">
+        <text class="input {{!form.categoryId ? 'placeholder' : ''}}">{{selectedCategoryName || '请选择分类'}}</text>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">价格</text>
+      <input class="input" type="digit" placeholder="请输入价格" value="{{form.price}}" bindinput="onInput" data-field="price" />
+    </view>
+    <view class="form-item">
+      <text class="label">原价</text>
+      <input class="input" type="digit" placeholder="选填" value="{{form.originPrice}}" bindinput="onInput" data-field="originPrice" />
+    </view>
+    <view class="form-item">
+      <text class="label">库存</text>
+      <input class="input" type="number" placeholder="请输入库存数量" value="{{form.stock}}" bindinput="onInput" data-field="stock" />
+    </view>
+    <view class="form-item">
+      <text class="label">产地</text>
+      <input class="input" placeholder="如：云南大理" value="{{form.origin}}" bindinput="onInput" data-field="origin" />
+    </view>
+    <view class="form-item">
+      <text class="label">是否有机</text>
+      <switch checked="{{form.isOrganic}}" color="#5B8C2A" bindchange="onSwitchChange" data-field="isOrganic" />
+    </view>
+    <view class="form-item">
+      <text class="label">是否产地直发</text>
+      <switch checked="{{form.isLocal}}" color="#5B8C2A" bindchange="onSwitchChange" data-field="isLocal" />
+    </view>
+    <view class="form-item upload-item">
+      <text class="label">商品图片</text>
+      <view class="upload-area">
+        <view class="uploaded-img" wx:for="{{form.images}}" wx:key="*this">
+          <image src="{{item}}" mode="aspectFill" />
+          <text class="remove-img" bindtap="removeImage" data-index="{{index}}">✕</text>
+        </view>
+        <view class="upload-btn" bindtap="uploadImage" wx:if="{{form.images.length < 9}}">
+          <text>+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="btn-wrap">
+    <button class="btn-primary" bindtap="saveGoods">保存商品</button>
+  </view>
+</view>

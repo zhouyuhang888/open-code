@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="login-box">
+    <text class="title">商家管理后台</text>
+    <text class="subtitle">登录后管理商品和订单</text>
+
+    <view class="form">
+      <view class="form-item">
+        <text class="label">账号</text>
+        <input class="input" placeholder="请输入商家账号" value="{{account}}" bindinput="onInput" data-field="account" />
+      </view>
+      <view class="form-item">
+        <text class="label">密码</text>
+        <input class="input" type="password" placeholder="请输入密码" value="{{password}}" bindinput="onInput" data-field="password" />
+      </view>
+    </view>
+
+    <button class="btn-primary login-btn" bindtap="doLogin">登录</button>
+  </view>
+</view>

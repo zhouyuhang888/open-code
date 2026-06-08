@@ -1,0 +1,14 @@
+<view class="goods-card" data-id="{{goods._id}}" bindtap="onTap">
+  <image class="goods-img" src="{{goods.images && goods.images[0] || placeholderImg}}" mode="aspectFill" />
+  <view class="goods-info">
+    <text class="goods-name ellipsis-2">{{goods.name}}</text>
+    <view class="goods-tags">
+      <text class="tag" wx:if="{{goods.isOrganic}}">有机</text>
+      <text class="tag" wx:if="{{goods.isLocal}}">产地直发</text>
+    </view>
+    <view class="goods-bottom">
+      <price-display price="{{goods.price}}" />
+      <text class="goods-sales">已售 {{goods.sales || 0}}</text>
+    </view>
+  </view>
+</view>
