@@ -14,7 +14,7 @@
 
   <view class="category-nav">
     <view class="nav-item" wx:for="{{categories}}" wx:key="id" data-id="{{item._id}}" bindtap="goCategory">
-      <image class="nav-icon" src="{{item.icon || 'https://via.placeholder.com/60'}}" mode="aspectFill" />
+      <image class="nav-icon" src="{{item.icon || 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=80&h=80&fit=crop'}}" mode="aspectFill" />
       <text class="nav-text">{{item.name}}</text>
     </view>
   </view>

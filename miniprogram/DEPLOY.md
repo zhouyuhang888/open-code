@@ -341,7 +341,7 @@ cloud.init({ env: '你的云环境ID' })
   "isLocal": true,
   "categoryId": "这里填有机蔬菜的分类 _id",
   "images": [
-    "https://via.placeholder.com/400x400/5B8C2A/FFFFFF?text=Organic+Eggs"
+    "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&h=400&fit=crop"
   ],
   "specs": [
     {
@@ -372,7 +372,7 @@ cloud.init({ env: '你的云环境ID' })
   "isLocal": true,
   "categoryId": "这里填有机蔬菜的分类 _id",
   "images": [
-    "https://via.placeholder.com/400x400/7CB342/FFFFFF?text=Cabbage"
+    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=400&fit=crop"
   ],
   "specs": [
     {
@@ -403,7 +403,7 @@ cloud.init({ env: '你的云环境ID' })
   "isLocal": true,
   "categoryId": "这里填五谷粮油的分类 _id",
   "images": [
-    "https://via.placeholder.com/400x400/D4A843/FFFFFF?text=Oil"
+    "https://images.unsplash.com/photo-1586201375761-eb8c9c2e9d9e?w=400&h=400&fit=crop"
   ],
   "specs": [
     {
@@ -434,7 +434,7 @@ cloud.init({ env: '你的云环境ID' })
   "isLocal": true,
   "categoryId": "这里填蜂蜜花茶的分类 _id",
   "images": [
-    "https://via.placeholder.com/400x400/F5A623/FFFFFF?text=Honey"
+    "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=400&fit=crop"
   ],
   "specs": [
     {
@@ -451,7 +451,7 @@ cloud.init({ env: '你的云环境ID' })
 }
 ```
 
-> **商品图片说明**：上面的 `images` 字段使用了占位图链接（via.placeholder.com），可以正常显示。你也可以在添加后，在商品管理页面上传真实的商品图片。
+> **商品图片说明**：上面的 `images` 字段已使用 Unsplash 真实图片链接，可以直接显示。你也可以在添加后，在商品管理页面上传自己的商品图片替换。
 
 ---
 
